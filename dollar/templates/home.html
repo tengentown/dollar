@@ -19,11 +19,13 @@
 </head>
 <body>
 <form method="POST"> 
+{% csrf_token %}
 <input type="text" id="email" width="20" name="email">
 <br>
 <a href=# id=submitbutton>submit</a>
 </form>
 <hr>
+<!-- crap...forgot about CSRF. I'll have to add this to this form. -->
 
 <div style="width:80%; height:20%;" id="result">
 </div>
