@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 from dollar.models import Subscriber
+import json
 import pretty
 
 def home(request):
@@ -22,7 +23,13 @@ def subscribe(request):
         new_subscriber = Subscriber(email=email)
         new_subscriber.save()
 
-        resp = HttpResponse('{"status":"fuckyeah", "email":email}', "application/json")
+        result = pretty.pretty(request.environ)
+        data={ "result": result,
+               "email": email
+        }
+        data_as_json = json.dumps(data)        
+
+        resp = HttpResponse(data_as_json, "application/json")
         print dir(resp)
         return resp
         #return HttpResponse('{result:1, email:%s}' % request.GET['email'], content_type="application/json")
