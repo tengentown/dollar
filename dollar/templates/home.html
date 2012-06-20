@@ -5,6 +5,7 @@
 <script type=text/javascript>
   $(function() {
     $('#submitbutton').bind('click', function() {
+alert('hihi');
       $.getJSON(/sub', {
         email: $('input[name="email"]').val(),
       }, function(data) {
@@ -20,7 +21,7 @@
 <form method="POST"> 
 <input type="text" id="email" width="20" name="email">
 <br>
-<a id="submitbutton" text="clickme">CLICK ME</a><!-- had to do this becaouse of form shit -->
+<span id="submitbutton">CLICK ME</span>
 </form>
 <hr>
 
