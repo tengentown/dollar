@@ -4,8 +4,8 @@
 
 <script type=text/javascript>
   $(function() {
-    $('#submitbutton').bind('click', function() {
-alert('hihi');
+    $('a#submitbutton').bind('click', function() {
+        alert($('input[name="email"]');
       $.getJSON(/sub', {
         email: $('input[name="email"]').val(),
       }, function(data) {
@@ -21,7 +21,7 @@ alert('hihi');
 <form method="POST"> 
 <input type="text" id="email" width="20" name="email">
 <br>
-<span id="submitbutton">CLICK ME</span>
+<a href=# id=submitbutton>submit</a>
 </form>
 <hr>
 
