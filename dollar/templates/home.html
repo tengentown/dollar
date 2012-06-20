@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type=text/javascript>
+  $(function() {
+    $('#submitbutton').bind('click', function() {
+      $.getJSON(/sub', {
+        email: $('input[name="email"]').val(),
+      }, function(data) {
+      $("#result").text(data.result);
+      });
+      return false;
+    });
+  });
+</script>
+
+</head>
+<body>
+<form method="POST"> 
+<input type="text" id="email" width="20" name="email">
+<br>
+<a id="submitbutton" text="clickme">CLICK ME</a><!-- had to do this becaouse of form shit -->
+</form>
+
+</body>
+</html>
