@@ -10,11 +10,16 @@ def subscribe(request):
     if request.method == 'POST':
         print(request.POST)
         #HOW DO WE RETURN json like: "{result:1}"
+        new_subscriber = Subscriber(email=request.POST['email'])
+        new_subscriber.save()
         return HttpResponse('{result:1, email:%s}' % request.POST['email'])
     if request.method == 'GET': # GET WORKS!!!  it onlykinda works... no response is sent back
                                 #but it alsod oesn't 500 error out
         print "WERE IN GETGETGET"
-        return HttpResponse('{"town":1}', "application/json")
+        abc = HttpResponse('{"town":1}', "application/json")
+        print type(abc)
+        print dir(abc)
+        new_subscriber = Subscriber(email=request.GET['email'])
+        new_subscriber.save()
+        return abc
         #return HttpResponse('{result:1, email:%s}' % request.GET['email'], content_type="application/json")
-
-
