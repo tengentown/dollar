@@ -5,10 +5,10 @@ from django.contrib import admin
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('dollar.views',
     # Examples:
     url(r'^$', 'home', name='home'),
-    url(r'^sub/', 'dollar.views.subscribe', name='subscribe'),
+    url(r'^sub/', 'subscribe', name='subscribe'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
