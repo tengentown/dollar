@@ -5,8 +5,11 @@
 <script type=text/javascript>
   $(function() {
     $('a#submitbutton').bind('click', function() {
-        alert($('input[name="email"]'));
-      $.getJSON(/sub', {
+
+    console.log($('a#submitbutton'));
+    console.log($('input[name="csrfmiddlewaretoken"]'));
+
+      $.getJSON('/sub', {
         email: $('input[name="email"]').val(),
        csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
       }, function(data) {

@@ -12,5 +12,5 @@ def subscribe(request):
         return True
     if request.method == 'GET':
         print "WERE IN GETGETGET"
-        #print(request.GET)
+        print(request.GET)
         return True
