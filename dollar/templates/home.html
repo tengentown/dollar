@@ -5,7 +5,7 @@
 <script type=text/javascript>
   $(function() {
     $('a#submitbutton').bind('click', function() {
-
+    // We can use GET if it's easier.
     console.log($('a#submitbutton'));
     console.log($('input[name="csrfmiddlewaretoken"]'));
 
@@ -17,7 +17,25 @@
       });
       return false;
     });
+
+
+    $('a#postbutton').bind('click', function() {
+    // We can use GET if it's easier.
+    console.log($('a#postbutton'));
+    console.log($('input[name="csrfmiddlewaretoken"]'));
+
+      $.post('/sub', {
+        email: $('input[name="email"]').val(),
+       csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+      }, function(data) {
+      $("#result").text(data.result);
+      }, 'json');
+      return false;
+    });
   });
+
+// Neither work now?kj
+
 </script>
 
 </head>
@@ -26,7 +44,8 @@
 {% csrf_token %}
 <input type="text" id="email" width="20" name="email">
 <br>
-<a href=# id=submitbutton>submit</a>
+<a href=# id=submitbutton>submit(get)</a>
+<a href=# id=postbutton>submit(post)</a>
 </form>
 <hr>
 <!-- crap...forgot about CSRF. I'll have to add this to this form. -->
