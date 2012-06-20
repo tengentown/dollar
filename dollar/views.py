@@ -14,7 +14,7 @@ def subscribe(request):
     if request.method == 'GET': # GET WORKS!!!  it onlykinda works... no response is sent back
                                 #but it alsod oesn't 500 error out
         print "WERE IN GETGETGET"
-        return HttpResponse('<b>hi there</b>')
-        #return HttpResponse('{result:1, email:%s}' % request.GET['email'])
+        return HttpResponse('{"town":1}', "application/json")
+        #return HttpResponse('{result:1, email:%s}' % request.GET['email'], content_type="application/json")
 
 
