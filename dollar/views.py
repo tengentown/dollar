@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 from dollar.models import Subscriber
-import pprint
-
+import pretty
 
 def home(request):
     return render_to_response('home.html')
@@ -18,7 +17,8 @@ def subscribe(request):
     if request.method == 'GET':
         email=request.GET['email']
            
-        print '\n'.join(dir(request))
+        #AHHHH... I DONT KNOW DJANGO AT ALL :(
+        pretty.pprint(request.environ)
         new_subscriber = Subscriber(email=email)
         new_subscriber.save()
 
