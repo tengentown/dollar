@@ -13,17 +13,16 @@ def subscribe(request):
         new_subscriber = Subscriber(email=request.POST['email'])
         new_subscriber.save()
         return HttpResponse('{result:1, email:%s}' % request.POST['email'])
-    if request.method == 'GET': # GET WORKS!!!  it onlykinda works... no response is sent back
-                                #but it alsod oesn't 500 error out
-        print "WERE IN GETGETGET"
-        email=request.GET['email']
-        new_subscriber = Subscriber(email=email)
 
-        abc = HttpResponse('{"status":"fuckyeah", "email":email}', "application/json")
-        print type(abc)
-        print dir(abc)
+    if request.method == 'GET':
+        email=request.GET['email']
+        print '\n'.join(dir(request))
+        new_subscriber = Subscriber(email=email)
         new_subscriber.save()
-        return abc
+
+        resp = HttpResponse('{"status":"fuckyeah", "email":email}', "application/json")
+        print dir(resp)
+        return resp
         #return HttpResponse('{result:1, email:%s}' % request.GET['email'], content_type="application/json")
 
 
