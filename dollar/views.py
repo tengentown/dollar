@@ -8,3 +8,8 @@ def home(request):
 def subscribe(request):
     if request.method == 'POST':
         print(request.POST)
+        return True
+    if request.method == 'GET':
+        print "WERE IN GETGETGET"
+        #print(request.GET)
+        return True

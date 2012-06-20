@@ -7,7 +7,7 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'dollar.views.home', name='home'),
+    url(r'^$', 'home', name='home'),
     url(r'^sub/', 'dollar.views.subscribe', name='subscribe'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
